@@ -18,10 +18,6 @@ public class CarWash {
 	private LinkedHashSet<Car> postPonedClients = new LinkedHashSet<Car>();
 	private LinkedHashSet<Car> todaysClients = new LinkedHashSet<Car>();
 
-	public void CarWashStandinLine(Car car) {
-
-	}
-
 	public Car getLastElement(final Collection<Car> c) {
 		final java.util.Iterator<Car> itr = c.iterator();
 		Object lastElement = itr.next();
