@@ -24,6 +24,7 @@ public class ValletParking<T extends Vehicle> {
 		return parkingSpotsMap;
 	}
 
+	// TODO CODE REVIEW: you should either return true&false, or just validate an throw an exception. You are doing both in this method.
 	public boolean vehicleAlreadyExists(T t) {
 		for (Entry<Ticket, T> entry : parkedVehicles.entrySet()) {
 			if (entry.getValue().equals(t)) {
@@ -33,6 +34,7 @@ public class ValletParking<T extends Vehicle> {
 		return false;
 	}
 
+	// TODO CODE REVIEW: The name sounds bad -> usParkingIsFull?! doesn't isParkingFull sound better?
 	public boolean isParkingIsFull() {
 		for (Entry<Integer, Ticket> entry : parkingSpotsMap.entrySet()) {
 			if (entry.getValue() == null) {
@@ -60,6 +62,10 @@ public class ValletParking<T extends Vehicle> {
 
 	public int findEmptySpot() {
 		if (isParkingIsFull()) {
+			/* TODO CODE REVIEW: You should use your own exception for this scenario. 
+			 * RuntimeException (IndexOutOfBoundsException is part of them) should be used 
+			 * for programming errors only.
+			 */
 			throw new IndexOutOfBoundsException("Parking Spots taken!");
 		}
 		for (Entry<Integer, Ticket> entry : parkingSpotsMap.entrySet()) {
