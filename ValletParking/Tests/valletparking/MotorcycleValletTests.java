@@ -27,6 +27,9 @@ public class MotorcycleValletTests {
 	}
 	@Test
 	public void testParkedMotorcycle() {
+		/* TODO CODE REVIEW: When tests are run together (MotorcycleValletTests along with CarValletTests, 
+		 * they don't run because in Ticket you have a static haschode tracker that is never reset on test tearDown.
+		 * */
 		Ticket testTicket = new Ticket(yamaha2.hashCode());
 		valletParking.parkVehicle(yamaha2, testTicket);
 
